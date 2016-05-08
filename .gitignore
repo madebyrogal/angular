@@ -1,18 +1,14 @@
-# Cache and logs (Symfony2)
+#Cache
 /app/cache/*
-/app/logs/*
 !app/cache/.gitkeep
+
+#Logs
+/app/logs/*
 !app/logs/.gitkeep
+/log
 
-# Cache and logs (Symfony3)
-/var/cache/*
-/var/logs/*
-!var/cache/.gitkeep
-!var/logs/.gitkeep
-
-# Parameters
+# Config
 /app/config/parameters.yml
-/app/config/parameters.ini
 
 # Managed by Composer
 /app/bootstrap.php.cache
@@ -27,7 +23,7 @@
 /web/uploads/
 
 # Assets managed by Bower
-/web/assets/vendor/
+/web/vendor/
 
 # PHPUnit
 /app/phpunit.xml
@@ -38,3 +34,4 @@
 
 # Composer PHAR
 /composer.phar
+/nbproject

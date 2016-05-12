@@ -1,7 +1,43 @@
 {% extends "AppBundle::base.html.twig" %}
 
-{% block title %}AppBundle:Main:index{% endblock %}
+{% block title %}Lista rzeczy do zrobienia{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Main:index page</h1>
+    <div class="page-header">
+        <h1>Lista rzeczy do zrobienia</h1>
+    </div>
+    <div class="panel">
+        <div class="input-group">
+            <input class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default">Dodaj</button>
+            </span>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Opis</th>
+                    <th>Zrobione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Kupić kwiaty</td>
+                    <td>Nie</td>
+                </tr>
+                <tr>
+                    <td>Kupić buty</td>
+                    <td>Nie</td>
+                </tr>
+                <tr>
+                    <td>Odebrać bilet</td>
+                    <td>Tak</td>
+                </tr>
+                <tr>
+                    <td>Zadzwonić do Janka</td>
+                    <td>Nie</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

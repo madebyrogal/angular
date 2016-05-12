@@ -1,25 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="todoApp">
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Panel Administracyjny{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}
             {{ include('AppBundle::_partial/include_head.html.twig') }}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        <div class="container-fluid panel">
-            <div class="row headerBar">
-                <div class="col-md-12">{{ include('MadebyrogalAdminBundle::_partial/header_bar.html.twig') }}</div>
-            </div>
-            <div class="row">
-                <div class="col-md-2 menu">{{ include('MadebyrogalAdminBundle::_partial/menu.html.twig') }}</div>
-                <div class="col-md-10 data">{% block body %}{% endblock %}</div>
-            </div>
-            {% block javascripts %}
-                 {{ include('AppBundle::_partial/include_foot.html.twig') }}
-            {% endblock %}
-        </div>
+        <main>
+        {% block body %}{% endblock %}
+        </main>
+        {% block javascripts %}
+            {{ include('AppBundle::_partial/include_foot.html.twig') }}
+        {% endblock %}
     </body>
 </html>

@@ -38,3 +38,6 @@ node_modules/
 # Composer PHAR
 /composer.phar
 /nbproject
+
+# Others
+/doc

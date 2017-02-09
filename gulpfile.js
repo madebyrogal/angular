@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     concat = require('gulp-concat'),
     watch = require('gulp-watch'),
-    pug = require('gulp-pug');
+    pug = require('gulp-pug'),
+    webserver = require('gulp-webserver');
 
 //Less
 gulp.task('less', function () {
@@ -58,6 +59,13 @@ gulp.task('pug', function() {
         }))
         .pipe(gulp.dest('web'));
 });
+//Webserver
+gulp.task('webserver', function() {
+  gulp.src('web')
+    .pipe(webserver({
+      port: 8001
+    }));
+});
 // Watch Files For Changes
 gulp.task('watch', function () {
     gulp.watch('UI/less/**/*.less', ['less']);
@@ -67,5 +75,5 @@ gulp.task('watch', function () {
 });
 
 // define tasks here
-gulp.task('default', ['less', 'scripts', 'pug', 'watch']);
+gulp.task('default', ['webserver', 'less', 'scripts', 'pug', 'watch']);
 gulp.task('build', ['less', 'scripts', 'pug']);

@@ -1,4 +1,9 @@
-angular
-=======
+# Angular test / teach project
+==============================
 
-A Symfony project created on May 8, 2016, 9:55 am.
+## How to start:
+- ```sh instal.sh```
+- ```gulp```
+
+Have fun :)
+

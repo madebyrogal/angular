@@ -2,7 +2,7 @@
 ==============================
 
 ## How to start:
-- ```sh instal.sh```
+- ```sh install.sh```
 - ```gulp```
 - Open in browser (webserver) http://localhost:8001/
 

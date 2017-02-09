@@ -53,8 +53,7 @@ app.controller('MainController', ['$scope', function ($scope) {
         $scope.getServicePrice = function(applicableAdditionalServices, currentService) {
             var price = '';
             _.each(applicableAdditionalServices, function(applicableService) {
-                if(applicableService.definitionId === currentService.id ) {
-                    
+                if(applicableService.definitionId === currentService.id && _.first(applicableService.validationResult.configurations).available) {
                     price = _.first(applicableService.validationResult.configurations).price.amount;
                     price += ' ' + _.first(applicableService.validationResult.configurations).price.currency;
                 }

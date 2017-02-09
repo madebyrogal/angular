@@ -1,4 +1,7 @@
 h1 {{title}}
-div
-    input(type="checkbox" ng-change="change(status)" ng-model="status")
-    label Label
+div.additional-services
+    div Usługi dodatkowe
+    div(ng-repeat="service in cartOffer.additionalServices")
+        input(id="{{ service.name }}-{{ cartOffer.offerId }}" ng-model="status" ng-change="selectService(service, cartOffer.offerId, status)" type="checkbox")
+        label(for="{{ service.name }}-{{ cartOffer.offerId }}") {{ service.name }}
+        span.price - {{ getServicePrice(cartOffer.applicableAdditionalServices, service) }}

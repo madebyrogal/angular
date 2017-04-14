@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Przykład</title>
+    <script src="angular.js"></script>
+    <script type="text/javascript">
+
+        function printMessage(unknownObject) {
+            if (angular.isFunction(unknownObject)) {
+                unknownObject();
+            } else {
+                console.log(unknownObject);
+            }
+        }
+
+        var variable1 = function sayHello() {
+            console.log("Witaj!");
+        };
+
+        var variable2 = "Żegnaj!";
+
+        printMessage(variable1);
+        printMessage(variable2);
+
+    </script>
+</head>
+<body>
+    To jest prosty przykład.
+</body>
+</html>

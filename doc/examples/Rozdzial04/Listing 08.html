@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Przykłady użycia frameworka Bootstrap</title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="panel">
+        <h3 class="panel-header">
+            Elementy formularza
+        </h3>
+
+        <div class="form-group">
+            <label>Nazwisko:</label>
+            <input name="name" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>E-mail:</label>
+            <input name="email" class="form-control" />
+        </div>
+        
+        <div class="radio">
+            <label>
+                <input type="radio" name="junkmail" value="yes" checked />
+                Tak, wysyłaj mi spam.
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="junkmail" value="no" />
+                Nie, nie chcę otrzymywać żadnych wiadomości.
+            </label>
+        </div>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" />
+                Zgadzam się z regulaminem.
+            </label>
+        </div>
+
+        <input type="button" class="btn btn-primary" value="Zapisz mnie" />
+    </div>
+</body>
+</html>

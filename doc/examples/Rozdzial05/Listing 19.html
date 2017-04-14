@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Przykład</title>
+    <script src="angular.js"></script>
+    <script type="text/javascript">
+        var myData = {
+            name: "Adam",
+            weather: "słoneczny",
+            printMessages: function () {
+                console.log("Witaj, " + this.name + ". ");
+                console.log("Dzisiaj mamy " + this.weather + " dzień.");
+            }
+        };
+
+        for (var prop in myData) {
+            console.log("Nazwa: " + prop + " Wartość: " + myData[prop]);
+        }
+
+        console.log("---");
+
+        angular.forEach(myData, function (value, key) {
+            console.log("Nazwa: " + key + " Wartość: " + value);
+        });
+
+    </script>
+</head>
+<body>
+    To jest prosty przykład.
+</body>
+</html>

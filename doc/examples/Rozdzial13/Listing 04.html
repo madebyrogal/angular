@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Kontrolery</title>
+    <script src="angular.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <script>
+        angular.module("exampleApp", [])
+            .controller("simpleCtrl", function ($scope) {
+
+                $scope.cities = ["Londyn", "Nowy Jork", "Paryż"];
+
+                $scope.city = "Londyn";
+
+                $scope.getCountry = function (city) {
+                    switch (city) {
+                        case "Londyn":
+                            return "UK";
+                        case "Nowy Jork":
+                            return "USA";
+                    }
+                }
+            });
+    </script>
+</head>
+<body ng-controller="simpleCtrl">
+
+    <div class="well">
+        <label>Wybierz miasto:</label>
+        <select ng-options="city for city in cities" ng-model="city">
+        </select>
+    </div>
+
+    <div class="well">
+        <p>Miasto: {{city}}</p>
+        <p>Kraj: {{getCountry(city) || "nieznany"}}</p>
+    </div>
+</body>
+</html>

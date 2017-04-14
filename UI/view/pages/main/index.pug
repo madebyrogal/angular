@@ -5,3 +5,7 @@ div.additional-services
         input(id="{{ service.name }}-{{ cartOffer.offerId }}" ng-model="status" ng-change="selectService(service, cartOffer.offerId, status)" type="checkbox")
         label(for="{{ service.name }}-{{ cartOffer.offerId }}") {{ service.name }}
         span.price - {{ getServicePrice(cartOffer.applicableAdditionalServices, service) }}
+ng-form(name="deliveryForm")
+    input(value="test")
+    input(type="submit" value="submit")
+dynamic-name(in-progress="true")

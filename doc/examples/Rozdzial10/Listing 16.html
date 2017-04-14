@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Dyrektywy</title>
+    <script src="angular.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <script>
+        angular.module("exampleApp", [])
+            .controller("defaultCtrl", function ($scope) {
+                $scope.todos = [
+                    { action: "Zrobić zakupy", complete: false },
+                    { action: "Zadzwonić do hydraulika", complete: false },
+                    { action: "Kupić buty do biegania", complete: true },
+                    { action: "Kupić kwiaty", complete: false },
+                    { action: "Zadzwonić do rodziny", complete: false }];
+
+                $scope.viewFile = function () {
+                    return $scope.showList ? "list.html" : "table.html";
+                };
+
+                $scope.reportChange = function () {
+                    console.log("Wyświetlony widok częściowy: " + $scope.viewFile());
+                }
+
+            });
+    </script>
+</head>
+<body>
+    <div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+        <h3 class="panel-header">Lista rzeczy do zrobienia</h3>
+
+        <div class="well">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="showList">
+                    Użyj widoku listy
+                </label>
+            </div>
+        </div>
+
+        <div ng-include="viewFile()" onload="reportChange()"></div>
+    </div>
+</body>
+</html>

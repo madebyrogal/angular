@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Kontrolery</title>
+    <script src="angular.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <script>
+        var app = angular.module("exampleApp", []);
+
+        app.controller("firstController", function ($scope) {
+
+            $scope.dataValue = "Witaj, Adam";
+
+            $scope.reverseText = function () {
+                $scope.dataValue = $scope.dataValue.split("").reverse().join("");
+            }
+        });
+
+        app.controller("secondController", function ($scope) {
+
+            $scope.dataValue = "Witaj, Jacqui";
+
+            $scope.changeCase = function () {
+                $scope.dataValue = $scope.dataValue.toUpperCase();
+            };
+        });
+    </script>
+</head>
+<body>
+    <div class="well" ng-controller="firstController">
+        <h4>Pierwszy kontroler</h4>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" 
+                        ng-click="reverseText()">Odwróć kolejność liter</button>
+            </span>
+            <input class="form-control" ng-model="dataValue">
+        </div>
+    </div>
+
+    <div class="well" ng-controller="secondController">
+        <h4>Drugi kontroler</h4>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button"
+                        ng-click="changeCase()">
+                    Zmień wielkość liter
+                </button>
+            </span>
+            <input class="form-control" ng-model="dataValue">
+        </div>
+    </div>    
+</body>
+</html>

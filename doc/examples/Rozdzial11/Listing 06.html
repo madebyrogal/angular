@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Dyrektywy</title>
+    <script src="angular.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <script>
+        angular.module("exampleApp", [])
+            .controller("defaultCtrl", function ($scope) {
+                $scope.todos = [
+                    { action: "Zrobić zakupy", complete: false },
+                    { action: "Zadzwonić do hydraulika", complete: false },
+                    { action: "Kupić buty do biegania", complete: true },
+                    { action: "Kupić kwiaty", complete: false },
+                    { action: "Zadzwonić do rodziny", complete: false }];
+
+                $scope.buttonNames = ["Czerwony", "Zielony", "Niebieski"];
+
+                $scope.settings = {
+                    Wiersze: "Czerwony", 
+                    Kolumny: "Green"
+                };
+            });
+    </script>
+    <style>
+        tr.Czerwony { background-color: lightcoral; }
+        tr.Zielony { background-color: lightgreen;}
+        tr.Niebieski { background-color: lightblue; }
+    </style>
+</head>
+<body>
+    <div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+        <h3 class="panel-header">Lista rzeczy do zrobienia</h3>
+
+        <div class="row well">
+            <div class="col-xs-6" ng-repeat="(key, val) in settings">
+                <h4>{{key}}</h4>
+                <div class="radio" ng-repeat="button in buttonNames">
+                    <label>
+                        <input type="radio" ng-model="settings[key]"
+                               value="{{button}}">{{button}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr><th>#</th><th>Zadanie</th><th>Zrobione</th></tr>
+            </thead>
+            <tr ng-repeat="item in todos" ng-class="settings.Wiersze">
+                <td>{{$index + 1}}</td>
+                <td>{{item.action}}</td>
+                <td ng-style="{'background-color': settings.Kolumny}">
+                    {{item.complete}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

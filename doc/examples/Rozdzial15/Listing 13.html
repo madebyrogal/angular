@@ -1,0 +1,36 @@
+<html ng-app="exampleApp">
+<head>
+    <title>Dyrektywy</title>
+    <script src="angular.js"></script>
+    <script>
+        angular.module("exampleApp", [])
+            .directive("demoDirective", function () {
+                return function (scope, element, attrs) {
+                    var items = element.children();
+                    for (var i = 0; i < items.length; i++) {
+                        if (items.eq(i).text() == "Pomarańcze") {
+                            items.eq(i).css("font-weight", "bold");
+                        } 
+                    }
+                }
+            })
+            .controller("defaultCtrl", function ($scope) {
+                // W kontrolerze nie zdefiniowano danych i funkcji.
+            })              
+    </script>
+</head>
+<body ng-controller="defaultCtrl">
+    <h3>Owoce</h3>
+    <ol demo-directive>
+        <li>Jabłka</li>
+        <ul>
+            <li>Banany</li>
+            <li>Wiśnie</li>
+            <li>Pomarańcze</li>
+        </ul>
+        <li>Pomarańcze</li>
+        <li>Brzoskwinie</li>
+    </ol>
+
+</body>
+</html>

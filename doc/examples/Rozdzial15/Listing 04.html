@@ -1,0 +1,40 @@
+<html ng-app="exampleApp">
+<head>
+    <title>Dyrektywy</title>
+    <script src="angular.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <script>
+angular.module("exampleApp", [])
+            .directive("unorderedList", function () {
+                return function (scope, element, attrs) {
+                    var data = scope[attrs["unorderedList"]];
+                    if (angular.isArray(data)) {
+                        for (var i = 0; i < data.length; i++) {
+                            console.log("Element: " + data[i].name);
+                        }
+                    }
+                }
+            })
+
+            .controller("defaultCtrl", function ($scope) {
+                $scope.products = [
+                    { name: "Jabłka", category: "Owoce", price: 1.20, expiry: 10 },
+                    { name: "Banany", category: "Owoce", price: 2.42, expiry: 7 },
+                    { name: "Brzoskwinie", category: "Owoce", price: 2.02, expiry: 6 }
+                ];
+            })
+    </script>
+</head>
+<body ng-controller="defaultCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Produkty</h3>
+        </div>
+        <div class="panel-body">
+            <div unordered-list="products"></div>
+        </div>
+    </div>
+</body>
+
+</html>

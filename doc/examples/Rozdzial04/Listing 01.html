@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <title>Lista rzeczy do zrobienia</title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <script src="angular.js"></script>
+    <script>
+        var todoApp = angular.module("todoApp", []);
+    </script>
+</head>
+<body>
+    <div class="page-header">
+        <h1>Lista rzeczy do zrobienia użytkownika Adam</h1>
+    </div>
+    <div class="panel">
+        <div class="input-group">
+            <input class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-default">Dodaj</button>
+            </span>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Opis</th>
+                    <th>Zrobione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Kupić kwiaty</td><td>Nie</td></tr>
+                <tr><td>Kupić buty</td><td>Nie</td></tr>
+                <tr><td>Odebrać bilety</td><td>Tak</td></tr>
+                <tr><td>Zadzwonić do Janka</td><td>Nie</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

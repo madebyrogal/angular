@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Demo AngularJS</title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <script src="angular.js"></script>
+    <script src="controllers.js"></script>
+    <script src="filters.js"></script>
+    <script>
+
+        var myApp = angular.module("exampleApp",
+            ["exampleApp.Controllers", "exampleApp.Filters",
+                "exampleApp.Services", "exampleApp.Directives"]);
+
+        myApp.constant("startTime", new Date().toLocaleTimeString());
+        myApp.config(function (startTime) {
+            console.log("Wywołanie config() w module głównym: " + startTime);
+        });
+        myApp.run(function (startTime) {
+            console.log("Wywołanie run() w module głównym: " + startTime);
+        });
+
+        angular.module("exampleApp.Directives", [])
+            .directive("highlight", function ($filter) {
+
+                var dayFilter = $filter("dayName");
+
+                return function (scope, element, attrs) {
+                    if (dayFilter(scope.day) == attrs["highlight"]) {
+                        element.css("color", "red");
+                    }
+                }
+            });
+
+        var now = new Date();
+        myApp.value("nowValue", now);
+
+        angular.module("exampleApp.Services", [])
+            .service("days", function (nowValue) {
+                this.today = nowValue.getDay();
+                this.tomorrow = this.today + 1;
+            })
+            .config(function () {
+                console.log("Wywołanie config() w module Services: (brak)");
+            })
+            .run(function (startTime) {
+                console.log("Wywołanie run() w module Services: " + startTime);
+            });
+
+    </script>
+
+</head>
+<body>
+    <div class="panel">
+        <div class="page-header">
+            <h3>Aplikacja AngularJS</h3>
+        </div>
+        <h4 ng-controller="dayCtrl" highlight="Monday">
+            Dzisiejszy dzień to {{day || "(nieznany)" | dayName}}
+        </h4>
+        <h4 ng-controller="tomorrowCtrl">
+            Jutrzejszy dzień to {{day || "(nieznany)" | dayName}}
+        </h4>
+    </div>
+</body>
+</html>

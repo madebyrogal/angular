@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Dyrektywy</title>
+    <script src="angular.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <script>
+        angular.module("exampleApp", [])
+            .controller("defaultCtrl", function ($scope) {
+                $scope.todos = [
+                    { action: "Zrobić zakupy", complete: false },
+                    { action: "Zadzwonić do hydraulika", complete: false },
+                    { action: "Kupić buty do biegania", complete: true },
+                    { action: "Kupić kwiaty", complete: false },
+                    { action: "Zadzwonić do rodziny", complete: false }];
+            });
+    </script>
+    <style>
+        td > *:first-child {font-weight: bold}
+    </style>
+</head>
+<body>
+    <div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+        <h3 class="panel-header">Lista rzeczy do zrobienia</h3>
+
+        <div class="checkbox well">
+            <label>
+                <input type="checkbox" ng-model="todos[2].complete" />
+                Zadanie nr 3 zostało wykonane
+            </label>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr><th>#</th><th>Zadanie</th><th>Zrobione</th></tr>
+            </thead>
+            <tr ng-repeat="item in todos | filter: {complete: 'false'}">
+                <td>{{$index + 1}}</td>
+                <td>{{item.action}}</td>
+                <td>{{item.complete}}</td>
+            </tr>
+        </table>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Dyrektywy</title>
+    <script src="angular.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <script>
+        angular.module("exampleApp", [])
+            .controller("defaultCtrl", function ($scope) {
+                $scope.todos = [
+                    { action: "Zrobić zakupy", complete: false },
+                    { action: "Zadzwonić do hydraulika", complete: false },
+                    { action: "Kupić buty do biegania", complete: true },
+                    { action: "Kupić kwiaty", complete: false },
+                    { action: "Zadzwonić do rodziny", complete: false }];
+            });
+    </script>
+</head>
+<body>
+    <div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+        <h3 class="panel-header">Lista rzeczy do zrobienia</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Zadanie</th>
+                    <th>Zrobione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in todos">
+                    <td ng-repeat="prop in item">{{prop}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>

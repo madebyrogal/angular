@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Obietnice</title>
+    <script src="angular.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+    <script>
+        angular.module("exampleApp", [])
+        .controller("defaultCtrl", function ($scope) {
+
+        });
+    </script>
+</head>
+<body ng-controller="defaultCtrl">
+    <div class="well">
+        <button class="btn btn-primary">Początek</button>
+        <button class="btn btn-primary">Koniec</button>
+        <button class="btn btn-primary">Przerwij</button>
+        Wynik: <span></span>
+    </div>
+</body>
+</html>

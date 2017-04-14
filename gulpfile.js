@@ -41,7 +41,8 @@ gulp.task('scripts', function() {
           'UI/js/config/*.js',
           'UI/js/filters/*.js',
           'UI/js/service/*.js',
-          'UI/js/controller/*.js'
+          'UI/js/controller/*.js',
+          'UI/js/directive/*.js'
         ])
         .pipe(plumber())
         .pipe(concat('app.js'))

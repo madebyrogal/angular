@@ -7,3 +7,8 @@ node_modules/
 
 # Others
 /nbproject
+
+# mac spam
+.DS_Store
+
+.idea/

@@ -1,11 +1,21 @@
-h1 {{title}}
-div.additional-services
-    div Usługi dodatkowe
-    div(ng-repeat="service in cartOffer.additionalServices")
-        input(id="{{ service.name }}-{{ cartOffer.offerId }}" ng-model="status" ng-change="selectService(service, cartOffer.offerId, status)" type="checkbox")
-        label(for="{{ service.name }}-{{ cartOffer.offerId }}") {{ service.name }}
-        span.price - {{ getServicePrice(cartOffer.applicableAdditionalServices, service) }}
-ng-form(name="deliveryForm")
-    input(value="test")
-    input(type="submit" value="submit")
-dynamic-name(in-progress="true")
+h1  Lista rzeczy do zrobienia użytkownika {{todo.user}}
+    span.label.label-default(ng-hide="incompleteCount()==0" ng-class="warningLevel()") {{incompleteCount()}}
+div.panel
+    div.input-group
+        input.form-control(ng-model="actionText")
+        span.input-group-btn
+            button.btn.btn-default(ng-click="addNewItem(actionText)") Dodaj
+    table.table.table-striped
+        thead
+            tr
+                th Opis
+                th Zrobione
+        tbody
+            tr(ng-repeat="item in todo.items | checkedItems: showComplete | orderBy: 'action'")
+                td {{item.action}}
+                td
+                    input(type="checkbox" ng-model="item.done")
+    div.checkbox-inline
+        label
+            input(type="checkbox" ng-model="showComplete")
+            | Pokaż zakończone

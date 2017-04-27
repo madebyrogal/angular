@@ -2,9 +2,19 @@ var model = {
     user: "Adam"
 };
 
-app.run(function ($http){
-    $http.get('data.json').success(function (data) {
-        model.items = data;
+// app.run(function ($http){
+//     $http.get('data.json').success(function (data) {
+//         model.items = data;
+//     });
+// });
+
+app.run(function ($http) {
+    $http.get("data.json").then(function (response){
+        model.items = response.data;
+    },function () {
+        console.log('nie udało się pobrać');
+    }).then(function (){
+       console.log('udało się pobrać dane');
     });
 });
 

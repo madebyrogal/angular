@@ -64,7 +64,8 @@ gulp.task('pug', function() {
 gulp.task('webserver', function() {
   gulp.src('web')
     .pipe(webserver({
-      port: 8001
+      port: 8001,
+      fallback: 'index.html'
     }));
 });
 // Watch Files For Changes

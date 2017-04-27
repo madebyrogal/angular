@@ -18,6 +18,10 @@ app.config(['$routeProvider', '$locationProvider',
             templateUrl: 'pages/main/index.html',
             controller: 'MainController'
         }).
+        when('/sport-store', {
+            templateUrl: 'pages/sport/index.html',
+            controller: 'SportController'
+        }).
         otherwise({
             redirectTo: '/'
         });

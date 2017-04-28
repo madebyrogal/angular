@@ -2,5 +2,11 @@ h1 sklep sport
 div.navbar.navbar-inverse
     a.navbar-brand SKLEP SPORTOWY
 div.panel.panel-default.row
-    div.col-xs-3 Miejsce na kategorie
-    div.col-xs-3 Miejsce na produkty
+    div.col-xs-3
+        a.btn.btn-block.btn-default.btn-lg(ng-click="selectCategory(item)" ng-repeat="item in data.products") {{item.category}}
+    div.col-xs-8
+        div.well(ng-repeat="item in data.products")
+            h3
+                strong {{item.name}}
+                span.pull-right.label.label-primary {{item.price | currency}}
+            span.lead {{item.description}}

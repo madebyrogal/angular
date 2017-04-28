@@ -1,7 +1,8 @@
 //Main module
 var app = angular.module("app", [
     'app.config',
-    'ngRoute'
+    'ngRoute',
+    'customFilters'
 ]);
 
 // routing

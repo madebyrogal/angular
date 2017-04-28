@@ -32,27 +32,27 @@ app.filter('checkedItems', function (){
 
 app.controller('MainController', ['$scope', function ($scope) {
     console.log('model',model);
-        $scope.todo = model;
+    $scope.todo = model;
 
-        $scope.incompleteCount = function(){
-            var count = 0;
-            angular.forEach($scope.todo.items, function(item){
-                if(!item.done){
-                    count ++;
-                }
-            });
-            return count;
+    $scope.incompleteCount = function(){
+        var count = 0;
+        angular.forEach($scope.todo.items, function(item){
+            if(!item.done){
+                count ++;
+            }
+        });
+        return count;
 
-        };
+    };
 
-        $scope.warningLevel = function(){
-            return $scope.incompleteCount() < 3 ? "label-success" : "label-warning";
-        };
+    $scope.warningLevel = function(){
+        return $scope.incompleteCount() < 3 ? "label-success" : "label-warning";
+    };
 
-        $scope.addNewItem = function(actionText){
-            $scope.todo.items.push({
-                action: actionText,
-                done: false
-            });
-        };
-    }]);
+    $scope.addNewItem = function(actionText){
+        $scope.todo.items.push({
+            action: actionText,
+            done: false
+        });
+    };
+}]);

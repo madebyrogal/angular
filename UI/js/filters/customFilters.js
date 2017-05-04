@@ -10,7 +10,10 @@ angular.module("customFilters", []) .filter("unique", function () {
                     keys[val] = true;
                     results.push(val); }
             }
-            return results; } else {
-            return data; }
+            return results;
+        }
+        else {
+            return data;
+        }
     };
 });

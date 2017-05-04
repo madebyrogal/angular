@@ -1,4 +1,4 @@
-app.controller('SportController', ['$scope', function ($scope) {
+app.controller('sportsStoreCtrl', ['$scope', function ($scope) {
     console.log('test działania');
     $scope.data = {
         products: [
@@ -28,7 +28,5 @@ app.controller('SportController', ['$scope', function ($scope) {
             }
         ]
     };
-
-
 
 }]);

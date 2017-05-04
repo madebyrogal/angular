@@ -7,6 +7,6 @@ html(ng-app="app")
         block title 
             title Angular teaching
         include pages/default/header-include.pug
-    body
+    body(ng-controller="sportsStoreCtrl")
         section.main(ng-view)
         include pages/default/footer-include.pug

@@ -1,11 +1,12 @@
 h1 sklep sport
 div.navbar.navbar-inverse
     a.navbar-brand SKLEP SPORTOWY
-div.panel.panel-default.row
+div.panel.panel-default.row(ng-controller="productListCtrl")
     div.col-xs-3
-        a.btn.btn-block.btn-default.btn-lg(ng-click="selectCategory(item)" ng-repeat="item in data.products") {{item.category}}
+        a.btn.btn-block.btn-default.btn-lg(ng-click="selectCategory()") Strona główna
+        a.btn.btn-block.btn-default.btn-lg(ng-click="selectCategory(item)" ng-class="getCategoryClass(item)" ng-repeat="item in data.products | orderBy:'category' | unique:'category'") {{item}}
     div.col-xs-8
-        div.well(ng-repeat="item in data.products")
+        div.well(ng-repeat="item in data.products | filter:categoryFilterFn")
             h3
                 strong {{item.name}}
                 span.pull-right.label.label-primary {{item.price | currency}}

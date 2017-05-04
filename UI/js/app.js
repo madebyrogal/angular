@@ -21,7 +21,7 @@ app.config(['$routeProvider', '$locationProvider',
         }).
         when('/sport-store', {
             templateUrl: 'pages/sport/index.html',
-            controller: 'SportController'
+            controller: 'sportsStoreCtrl'
         }).
         otherwise({
             redirectTo: '/'
